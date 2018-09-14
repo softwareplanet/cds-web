@@ -1,0 +1,119 @@
+@keyframes fromHidden {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+textarea {
+  min-height: 2.4em;
+}
+
+h2 {
+  margin-left: 1rem;
+}
+
+#form-container {
+  padding: 2.1rem 0 4rem 0;
+}
+
+.group {
+  width: 48%;
+  position: relative;
+  min-height: 16.5rem;
+}
+
+#phones-list {
+  padding: 0;
+  margin-top: -10px;
+}
+
+#phones-list li {
+  list-style-type: none;
+  display: inline-block;
+  float: left;
+  margin-right: 7px;
+}
+
+#add-phone {
+  border-radius: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.input-group-prepend {
+  width: 9em;
+}
+
+.input-group-text {
+  width: 100%;
+}
+
+.remove-button {
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid black;
+  padding: 0;
+  width: 1.4em;
+  height: 1.4em;
+  font-size: 0.8em;
+  line-height: 0;
+}
+
+#buttons {
+  position: absolute;
+  bottom: 0;
+}
+
+textarea {
+  max-height: 20rem;
+}
+
+#created {
+  padding: 2rem 0 4rem 0;
+  text-align: center;
+  animation-name: fromHidden;
+  animation-duration: 2s;
+  width: 98%;
+  margin-left: 1%;
+}
+
+#created h1 {
+  padding-top: 5rem;
+  border-top: 1px solid black;
+  font-weight: 800;
+}
+
+#created h3 {
+  font-weight: 800;
+}
+
+#created div {
+  margin-top: 2rem;
+  border-bottom: 1px solid black;
+  padding-bottom: 5rem;
+}
+
+.toHidden {
+  animation-name: fromHidden;
+  animation-direction: reverse;
+  animation-duration: 2s;
+}
+
+.fromHidden {
+  -webkit-animation-name: fromHidden;
+  -moz-animation-name: fromHidden;
+  -o-animation-name: fromHidden;
+  animation-name: fromHidden;
+
+  animation-duration: 2s;
+}
+
+.not-valid-message {
+
+}
+
+
+

@@ -1,0 +1,18 @@
+select {
+  float:right;
+  margin: 0 .1rem 0 1rem;
+  background: #00993a;
+  background: -moz-linear-gradient(top, #00993a 0%, #03b255 46%, #45c672 100%);
+  background: -webkit-linear-gradient(top, #00993a 0%,#03b255 46%,#45c672 100%);
+  background: linear-gradient(to bottom, #00993a 0%,#03b255 46%,#45c672 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00993a', endColorstr='#45c672',GradientType=0 );
+  color: white;
+  border-color: #069e08;
+  padding: 0.3rem;
+  font-weight: bold;
+  border-radius: 7px;
+}
+option {
+  background-color: #03bd5d;
+}
+

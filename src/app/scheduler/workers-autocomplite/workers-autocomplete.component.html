@@ -1,0 +1,9 @@
+<div class="worker-content input-group">
+  <div class="select-worker">
+    <ng-select [items]="workersView"
+               bindValue="user.id"
+               [(ngModel)]="workerId"
+               (add)="assignWorker($event)">
+    </ng-select>
+  </div>
+</div>

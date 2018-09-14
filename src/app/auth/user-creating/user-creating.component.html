@@ -1,0 +1,89 @@
+<div *ngIf="!userFilled" id="user" class="form-group">
+  <!-- first name -->
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="firstName">First name</span>
+    </div>
+    <input type="text"
+           class="form-control {{(notCompleted && !user.firstName)? 'not-completed': ''}}"
+           aria-describedby="firstName"
+           name="firstName"
+           [(ngModel)]="user.firstName">
+    <p *ngIf="(notCompleted && !user.firstName)" class="not-valid-message">Enter first name</p>
+  </div>
+
+
+  <!-- last name -->
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="secondName">Last name</span>
+    </div>
+    <input type="text"
+           class="form-control {{(notCompleted && !user.lastName)? 'not-completed': ''}}"
+           name="lastName"
+           [(ngModel)]="user.lastName">
+    <p *ngIf="(notCompleted && !user.lastName)" class="not-valid-message">Enter last name</p>
+  </div>
+
+
+  <!-- username -->
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Username</span>
+    </div>
+    <input type="text"
+           class="form-control {{(notCompleted && !user.username)? 'not-completed': ''}}"
+           name="userName"
+           [(ngModel)]="user.username">
+    <p *ngIf="(notCompleted && !user.username)" class="not-valid-message">Enter username</p>
+  </div>
+
+
+  <!-- website -->
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Email</span>
+    </div>
+    <input type="email"
+           class="form-control {{(notCompleted && !user.eMail)? 'not-completed': ''}}"
+           name="email"
+           [(ngModel)]="user.eMail">
+    <p *ngIf="(notCompleted && !user.eMail)" class="not-valid-message">Enter email</p>
+  </div>
+
+  <!-- password -->
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Password</span>
+    </div>
+    <input type="password"
+           class="form-control {{(notCompleted && (password === '' || !password))? 'not-completed': ''}}"
+           name="password"
+           [(ngModel)]="password">
+    <p *ngIf="(notCompleted && (password === '' || !password))" class="not-valid-message">Enter password</p>
+  </div>
+
+
+
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Confirm password</span>
+    </div>
+    <input type="password"
+           class="form-control {{(password !== confirmPassword)? 'not-completed': ''}}"
+           name="password"
+           [(ngModel)]="confirmPassword">
+    <p *ngIf="(password !== confirmPassword)" class="not-valid-message">Passwords is not equal</p>
+  </div>
+
+
+  <div id="buttons" class="d-flex justify-content-center">
+    <button class="btn btn-success" (click)="complete()">
+      {{buttonLabel}}
+    </button>
+    <button class="btn" (click)="cancel()">
+      {{button2Label}}
+    </button>
+  </div>
+
+</div>

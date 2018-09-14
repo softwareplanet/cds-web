@@ -1,0 +1,37 @@
+#body-counter {
+  width: 100%;
+  background-color: #2a2e33;
+  padding: 1em 1em 2em 0;
+}
+
+#navigated-container {
+  width: 9%;
+}
+
+#router-container {
+  width: 91%;
+  background-color: white;
+  border-radius: 0.5em;
+  padding: 0 10px 10px 10px;
+}
+
+header {
+  height: 3rem;
+  background-color: white;
+}
+
+header div {
+  display: inline-block;
+  width: 9%;
+}
+
+header h1 {
+  display: inline-block;
+}
+app-messages {
+  position: absolute;
+  bottom: 0;
+  right: 0.8rem;
+  width: 22rem;
+  z-index: 200000;
+}

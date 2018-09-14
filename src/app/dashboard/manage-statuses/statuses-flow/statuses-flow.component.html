@@ -1,0 +1,52 @@
+<div>
+  <div class="d-flex" id="dropdown">
+
+    <div class="btn-group" dropdown>
+      <button id="button-basic"
+              dropdownToggle
+              type="button"
+              class="btn btn-dark dropdown-toggle"
+              aria-controls="dropdown-basic">
+        {{currentStatus.title}}
+        <span class="caret"></span>
+      </button>
+
+      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+          role="menu" aria-labelledby="button-basic">
+        <li *ngFor="let status of otherStatuses"
+            role="menuitem">
+          <a class="dropdown-item"
+             (click)="setCurrentStatus(status.status.id)">
+            {{status.status.title}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="statuses">
+    <ul class="d-flex flex-column">
+      <li *ngFor="let status of otherStatuses" class="status-to">
+        <div class="input-group mb-3">
+          <div class="status-check" style="z-index: 1000">
+            <input type="checkbox" [(ngModel)]="status.checked">
+            <div></div>
+          </div>
+          <input type="text"
+                 class="form-control {{(status.notFilled && (!status.action || status.action === ''))? 'notFilled': ''}}"
+                 placeholder="Action name, e.g. 'Complete'"
+                 name="statusTo" [(ngModel)]="status.action">
+          <p *ngIf="(status.notFilled && (!status.action || status.action === ''))" class="not-valid-message">Enter action</p>
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="status{{status.status.id}}">{{status.status.title}}</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <div id="buttons">
+      <button class="btn btn-success" (click)="saveFlow()">Save</button>
+      <button class="btn" (click)="setCurrentStatus(currentStatus.id)">Reset</button>
+    </div>
+  </div>
+</div>

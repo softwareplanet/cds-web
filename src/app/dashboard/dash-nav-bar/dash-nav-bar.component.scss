@@ -1,0 +1,39 @@
+ul {
+  height: 3rem;
+  z-index: 1000;
+  position: relative;
+}
+a {
+  font-weight: 600;
+  line-height: 3.3rem;
+  text-decoration: none;
+  color: rgba(87, 87, 87, 0.72);
+}
+
+li {
+  text-align: center;
+  width: 10rem;
+  height: 3rem;
+  list-style-type: none;
+  display: inline-block;
+  margin-left: -5px;
+}
+.active {
+  color: #575757;
+}
+.active li {
+  border-bottom: 1px solid white;
+  border-right: 1px solid rgba(115, 115, 115, 0.7);
+  border-left: 1px solid rgba(115, 115, 115, 0.7);
+  z-index: 3000;
+  position: relative;
+}
+span {
+  border-bottom: 1px solid rgba(115, 115, 115, 0.7);
+  display: inline-block;
+  z-index: 2000;
+  width: 98%;
+  position: absolute;
+  top:2.94rem;
+  left: 1%;
+}

@@ -1,0 +1,36 @@
+<div style="display: inline-block; float: right; width: 65%; margin-right: 0.9rem">
+  <form style="width: 100%" action="" class="form-group d-flex float-right" (submit)="createStatus($event)">
+    <div *ngIf="creating" class="d-flex justify-content-around" style="width: 100%">
+      <div class="input-group mb-3" style="width: 30%">
+        <div class="input-group-prepend">
+          <span class="input-group-text " id="name">Name</span>
+        </div>
+        <input type="text"
+               name="name"
+               class="form-control {{(nameNotEntered && !status.title || status.title === '')? 'nameNotEntered' : ''}}" [(ngModel)]="status.title">
+        <p *ngIf="(nameNotEntered && !status.title || status.title === '')" class="not-valid-message">Enter name</p>
+      </div>
+
+      <div class="input-group mb-3" style="width: 70%; margin-left: 1rem">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="Description">Description</span>
+        </div>
+        <input type="text"
+               class="form-control"
+               name="description"
+               [(ngModel)]="status.description">
+      </div>
+    </div>
+
+    <div style="width: 11rem" class="d-flex justify-content-end">
+      <button type="submit" *ngIf="creating" class="btn btn-success btn-sm" style="margin-right: 1rem">Create</button>
+      <button (click)="exitCreatingMode()" *ngIf="creating" class="btn btn-sm">Cancel</button>
+    </div>
+  </form>
+  <button (click)="enterCreatingMode()"
+          *ngIf="!creating"
+          class="btn btn-dark btn-sm float-right"
+          style="margin-top: -1rem">New
+  </button>
+</div>
+

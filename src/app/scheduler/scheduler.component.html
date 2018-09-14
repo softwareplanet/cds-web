@@ -1,0 +1,50 @@
+<div class="" id="container">
+  <div style="float: left">
+    <h2>Open Jobs</h2>
+  </div>
+  <div id="filter">
+    <app-filter></app-filter>
+  </div>
+  <table class="table table-striped table-curved">
+    <thead class="thead-green">
+    <tr>
+      <th class="text-sm-center id-col">Job ID</th>
+      <th class="text-sm-left">Title</th>
+      <th class="text-sm-center">Location</th>
+      <th class="text-sm-center">Date</th>
+      <th class="text-sm-left">Customer name</th>
+      <th class="text-sm-center">Couriers</th>
+      <th class="text-sm-center">Status</th>
+      <th class="text-sm-center">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let job of jobs">
+      <td class="text-sm-center">{{job.id}}</td>
+      <td class="text-sm-left">{{job.title}}</td>
+      <td class="text-sm-center">{{job.location}}</td>
+      <td class="text-sm-center">{{job.dueDate.toDateString()}}</td>
+      <td class="text-sm-left">{{job.customerName}}</td>
+      <td class="worker-cell">
+
+        <app-workers-autocomplete [job]="job"
+                                  [workerId]="job.assignee ? job.assignee.id : null"></app-workers-autocomplete>
+      </td>
+      <td class="text-sm-center">
+        {{job.status.title}}
+      </td>
+      <td class="text-sm-center">
+        <app-change-status [status]="job.status" [jobId]="job? job.id: null"
+                           [transitions]="getTransitions(job)"
+                           [transitionShow]="transitionsShow"
+                           (selected)="closeOther($event)"></app-change-status>
+      </td>
+    </tr>
+    <tr class="bg-dark text-white">
+      <td colspan="100" id="last-row">{{jobs ? jobs.length: 0}} Jobs</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+

@@ -1,0 +1,18 @@
+<div style="position: relative">
+  <select [(ngModel)]="filterBy" (change)="filter()">
+    <option class="option" value="all">All</option>
+    <option class="option" value="byAssignee">By assignee</option>
+    <option class="option" value="byStatus">By status</option>
+  </select>
+
+  <select *ngIf="filterBy !== 'all'"
+          id="slider"
+          [(ngModel)]="id"
+          (change)="getItems()">
+    <option *ngFor="let item of items"
+            value="{{item.id}}"
+            class="option">
+      {{item.title}}
+    </option>
+  </select>
+</div>

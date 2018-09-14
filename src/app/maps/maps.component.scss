@@ -1,0 +1,75 @@
+agm-map {
+  height: 600px;
+}
+
+.form-group-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.title{
+  flex: 0.5 0 120px;
+  align-self: center;
+}
+
+.autocomplete{
+  align-self: center;
+  flex: 3 0 calc(100% - 120px);
+}
+
+.date-input{
+  flex: 3 0 calc(100% - 120px);
+}
+
+.tab{
+  display: flex;
+  align-items: center;
+  padding: 0 1.5em;
+  height: 100%;
+  list-style-type: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-top: none ;
+  color: rgba(87, 87, 87, 0.72);
+  box-sizing: border-box;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.tabs{
+  display: flex;
+  flex: 1 0 100%;
+  box-sizing: border-box;
+  height: 3em;
+
+}
+
+.active-tab{
+  border-bottom: 1px solid white;
+  border-left: 1px solid #575757;
+  border-right: 1px solid #575757;
+  z-index: 100;
+  color: #575757;
+}
+
+#underline {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  border-bottom: 1px solid #575757;
+  top: calc(3em - 1px);
+}
+.worker-direction-block{
+display: flex;
+flex-wrap:wrap;
+}
+
+.worker-direction-block * {
+  margin: 0.5em 0;
+}
+
+
+

@@ -1,0 +1,103 @@
+$radius: 0.5rem;
+$table-head-color: #03bd5d;
+
+.table-curved {
+  border-collapse: separate;
+  border-radius: $radius;
+  border: 0;
+  border-spacing: 0;
+  font-size: 0.9em;
+  align-items: center;
+  vertical-align: center;
+}
+
+#container {
+  min-height: 8rem;
+  padding: 1.5rem 1rem 0 1rem;
+}
+
+.table-curved > thead:first-child > tr:first-child > th {
+  border-bottom: 0px;
+  border-top: solid #ccc 0px;
+}
+
+.table-curved > :first-child > :first-child > :first-child {
+  border-radius: $radius 0 0 0;
+}
+
+.table-curved > :first-child > :first-child > :last-child {
+  border-radius: 0 $radius 0 0;
+}
+
+.table-curved > :last-child > :last-child > :first-child {
+  border-radius: 0 0 0 $radius;
+}
+
+.table-curved > :last-child > :last-child > :last-child {
+  border-radius: 0 0 $radius 0;
+}
+
+.thead-green {
+  background-color: $table-head-color;
+  color: white;
+}
+
+th {
+  padding: 0.5rem;
+  border-right: 1px solid #f1f1f1;
+}
+
+tr > :last-child {
+  border-right: 0;
+}
+
+td {
+  padding: 0.5rem;
+  vertical-align: inherit;
+  border-right: 1px solid #f1f1f1;
+}
+
+#last-row {
+  border-radius: 0 0 $radius $radius;
+  border: 0;
+  padding: 0.2rem 0 0.2rem 1rem;
+  font-size: 0.9em;
+}
+
+.id-col {
+  width: 10%;
+}
+
+.worker-cell {
+  padding: 0.4em;
+}
+
+.statuses-button {
+  position: relative;
+  z-index: 1;
+}
+
+.status-buttons-list {
+  position: absolute;
+  z-index: 1000;
+}
+
+.status-buttons-list button {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+#filter {
+  float: right;
+  margin-right: -0.08rem;
+}
+.container {
+
+}
+h2 {
+  margin-bottom: 1rem;
+}
+

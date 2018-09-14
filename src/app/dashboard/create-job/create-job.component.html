@@ -1,0 +1,121 @@
+<div class="{{toHidden}} {{fromHidden}}"
+     id="form-container"
+     *ngIf="!created;" style="padding-top: 0">
+  <h2 class="mb-3">
+    Create Job
+  </h2>
+  <form class="d-flex justify-content-around">
+    <div class="group">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="title">Title</span>
+        </div>
+        <input type="text" class="form-control"
+               aria-label="Title"
+               aria-describedby="title"
+               [(ngModel)]="form.title"
+               name="title">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Description</span>
+        </div>
+        <textarea class="form-control"
+                  aria-label="Description"
+                  [(ngModel)]="form.description"
+                  name="description" rows="3"></textarea>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Location</span>
+        </div>
+        <textarea class="form-control"
+                  aria-label="Location"
+                  [(ngModel)]="form.location"
+                  name="location" rows="3"></textarea>
+      </div>
+
+    </div>
+
+    <div class="group">
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="customer-name">Customer Name</span>
+        </div>
+        <input type="text" class="form-control"
+               aria-label="CustomerName"
+               aria-describedby="customer-name"
+               [(ngModel)]="form.customerName"
+               name="customer-name">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="email">Email</span>
+        </div>
+        <input type="email" class="form-control"
+               aria-label="Email"
+               aria-describedby="email"
+               [(ngModel)]="form.eMail"
+               name="email">
+      </div>
+
+      <div class="input-group mb-3" style="height: 38px">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="date">Date</span>
+        </div>
+        <input type="date" class="form-control"
+               aria-label="Date"
+               aria-describedby="date"
+               [(ngModel)]="form.dueDate"
+               name="date">
+      </div>
+
+      <div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="phones">Phones</span>
+          </div>
+          <input [(ngModel)]="phone.number" type="text"
+                 class="form-control"
+                 aria-describedby="phones"
+                 name="phone"
+                 (keypress)="addPhoneFromEnter($event)">
+          <button type="button"
+                  id="add-phone"
+                  class="btn btn-dark"
+                  style="padding: 0 10px"
+                  (click)="addPhone()">
+            +
+          </button>
+        </div>
+      </div>
+      <ul id="phones-list">
+        <li *ngIf="form.phones.length === 0" style="visibility: hidden">no phones</li>
+        <li *ngFor="let phone of form.phones">{{phone.number}} {{phone.type}}
+          <button (click)="removePhone(phone)" class="remove-button">
+            x
+          </button>
+        </li>
+      </ul>
+      <div id="buttons" class="container d-flex mt-3 justify-content-end">
+        <button (click)="createJob()" class="btn btn-success mr-2">
+          Create
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<div *ngIf="created" class="{{(toHidden === '')? 'toHidden': ''}}" id="created">
+  <h1>Job {{createdJob.title}} was created</h1>
+  <h3>Job ID: {{createdJob.id}}</h3>
+  <div>
+    <button class="btn btn-dark" (click)="goToScheduler()">Go to scheduler</button>
+    <button class="btn btn-dark" (click)="hideInfo()">Back to creation</button>
+  </div>
+</div>

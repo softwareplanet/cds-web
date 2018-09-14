@@ -1,0 +1,44 @@
+.form-group {
+  padding: 1rem;
+}
+
+#user .input-group-prepend span {
+  width: 9rem;
+}
+
+#company .input-group-prepend span {
+  width: 8rem;
+}
+
+.input-group {
+  margin-bottom: .6rem;
+}
+
+button {
+  margin: 0 0.5rem;
+}
+
+.not-completed {
+  border: 1px solid rgba(151, 0, 15, 0.9);
+  box-shadow: 0px 0px 4px 2px rgba(151, 0, 15, 0.6);
+}
+.not-valid-message {
+  height: 0.5rem;
+  font-size: 0.8rem;
+  padding-left: 10rem;
+  color: rgba(151, 0, 15, 0.9);
+  position: absolute;
+  right: 0.5rem;
+  top: 0.7rem;
+}
+h3 {
+  margin-left: 1rem;
+  color: white;
+  font-weight: 600;
+  margin-bottom: -0.5rem;
+}
+h2 {
+  font-weight: 600;
+  color: white;
+  margin-left: 1rem;
+}

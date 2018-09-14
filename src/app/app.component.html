@@ -1,0 +1,26 @@
+<header>
+  <div></div>
+  <h1>CDS</h1>
+  <a *ngIf="!authenticated" class="btn btn-dark float-right mr-3 mt-1"
+     style="color: white"
+     (click)="router.navigate(['auth', 'register'])">Registration</a>
+  <a *ngIf="authenticated" class="btn btn-dark float-right mr-3 mt-1"
+     style="color: white"
+     (click)="logout()">Logout</a>
+</header>
+
+<div *ngIf="authenticated; else content_without_navigation" class=" d-flex" id="body-counter">
+  <div id="navigated-container">
+    <app-navigated-container></app-navigated-container>
+  </div>
+  <div class="" id="router-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<ng-template #content_without_navigation>
+  <router-outlet></router-outlet>
+</ng-template>
+<div style="position: relative;">
+  <ng-snotify class="material"></ng-snotify>
+</div>

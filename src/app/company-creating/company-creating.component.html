@@ -1,0 +1,59 @@
+<div>
+  <h2>Company registration</h2>
+  <h3 *ngIf="!userFilled">1. Admin information</h3>
+  <app-user-creating [user]="user"
+                     [userFilled]="userFilled"
+                     (userfilled)="setPass($event)"
+                     [password]="password"
+                     [button2Label]="'Cancel'"
+                     (__cancel)="cancel()"
+                     [buttonLabel]="'Next'"
+                     *ngIf="!userFilled"></app-user-creating>
+
+  <div *ngIf="userFilled" id="company">
+    <h3>2. Company information</h3>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Name</span>
+        </div>
+        <input type="text"
+               class="form-control {{(notCompleted && !company.name)? 'not-completed': ''}}"
+               name="companyName"
+               [(ngModel)]="company.name">
+        <p *ngIf="(notCompleted && !company.name)" class="not-valid-message">Enter company name</p>
+      </div>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Website</span>
+        </div>
+        <input type="email"
+               class="form-control {{(notCompleted && !company.website)? 'not-completed' : ''}}"
+               name="companyEmail"
+               [(ngModel)]="company.website">
+        <p *ngIf="(notCompleted && !company.website)" class="not-valid-message">Enter company website</p>
+      </div>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Starting status</span>
+        </div>
+        <input type="text"
+               class="form-control {{(notCompleted && !company.defaultStatus.title)? 'not-completed' : ''}}"
+               name="companyEmail"
+               [(ngModel)]="company.defaultStatus.title">
+        <p *ngIf="(notCompleted && !company.defaultStatus.title)" class="not-valid-message">Enter company starting status</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="userFilled" id="buttons" class="d-flex justify-content-center">
+    <button class="btn btn-success" (click)="complete()">
+      Register
+    </button>
+    <button class="btn" (click)="cancel()">
+      Back
+    </button>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+
+
+<div class="form-group-wrapper" [ngSwitch]="typeOfMapView">
+    <ul class="tabs">
+      <li (click)="typeOfMapView='lastWorkersLocation'; showLastPositions()"
+          class="tab"
+          [ngClass]="{'active-tab' : typeOfMapView==='lastWorkersLocation' }">
+        Last workers positions
+      </li>
+      <li (click)="typeOfMapView='workerDirection'; removeAllFromMap()" class="tab"
+          [ngClass]="{'active-tab' : typeOfMapView==='workerDirection' }">
+        Workers direction history
+      </li>
+    </ul>
+    <span id="underline"></span>
+
+    <agm-map
+      [latitude]="points ? points[0].latitude : currentLocation.latitude"
+      [longitude]="points ? points[0].longitude : currentLocation.longitude"
+      [zoom]='13'>
+        <agm-polyline [strokeColor]=''>
+            <agm-marker *ngFor="let marker of markers; let i = index"
+                    [label]="(i+1).toString()"
+                    [title]="generateInfoTitle(marker)"
+                    [latitude]=marker.latitude
+                    [longitude]=marker.longitude>
+            </agm-marker>
+            <agm-polyline-point *ngFor="let point of points"
+                            [latitude]=point.latitude
+                            [longitude]=point.longitude>
+            </agm-polyline-point>
+        </agm-polyline>
+    </agm-map>
+
+    <div class="worker-direction-block" *ngSwitchCase="'workerDirection'">
+        <div class="title">Choose worker:</div>
+        <ng-select class="autocomplete"
+               [items]="workers"
+               bindValue="id"
+               bindLabel="username"
+               [(ngModel)]="workerId"
+               (add)="showPolylineForChosenUser($event)">
+        </ng-select>
+        <div class="title">Choose date:</div>
+    <input type="date" class="form-control date-input"
+           aria-label="Date"
+           aria-describedby="date"
+           [(ngModel)]="date"
+           #inputDateRef
+           name="date" (input)="showPolylineForChosenDay(inputDateRef.value)">
+    </div>
+        <div *ngSwitchCase="'lastWorkersLocation'">
+        <p>Current location of all workers</p>
+    </div>
+</div>
+
+
+
